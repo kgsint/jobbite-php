@@ -1,17 +1,22 @@
 <?php
 
+use App\Exceptions\ValidationException;
 use Core\Router;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 $router = new Router;
-
 $router->get('/', [HomeController::class, 'index']);
 
+$router->get('/login', [LoginController::class, 'create']);
+$router->get('/register', [RegisterController::class, 'create']);
+$router->post('/register', [RegisterController::class, 'store']);
 
-// original path without query string
-$uri = parse_url($_SERVER['REQUEST_URI'])['path']; 
 
-// check if there is PUT, PATCH  DELETE, form-request, if not GET or POST
-$method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD']; 
 
-$router->resolve($uri, $method);
+
+
+
+
+// unflash errors and old values from form requests
