@@ -4,9 +4,21 @@
   <a href="/" class="flex items-center">
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Jobbite</span>
   </a>
+  <!-- logout form -->
+  <form action="/logout" class="hidden" id="logout-form" method="post">
+
+  </form>
+
   <div class="flex md:order-2 md:space-x-2">
-      <a href="/login" class="text-white block cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</a>
-      <a href="/register" class="text-white cursor-pointer bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 md:mr-0 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Register</a>
+    <!-- nav btns -->
+      <?php if(isset($_SESSION['user'])) : ?>
+        <a href="#" class="text-black cursor-pointer bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 md:mr-0">Post a job</a>
+        <button form="logout-form" class="text-white cursor-pointer bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 md:mr-0">Logout</a>
+      <?php else: ?>
+        <a href="/login" class="text-white  block cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</a>
+        <a href="/register" class="text-black hover:text-white block cursor-pointer bg-white border border-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Register</a>
+      <?php endif; ?>
+      
       <button id="hamburger-btn" data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">

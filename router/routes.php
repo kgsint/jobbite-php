@@ -9,9 +9,11 @@ use App\Http\Controllers\RegisterController;
 $router = new Router;
 $router->get('/', [HomeController::class, 'index']);
 
-$router->get('/login', [LoginController::class, 'create']);
 $router->get('/register', [RegisterController::class, 'create']);
 $router->post('/register', [RegisterController::class, 'store']);
+$router->get('/login', [LoginController::class, 'create']);
+$router->post('/login', [LoginController::class, 'store']);
+$router->post('/logout', [LoginController::class, 'logout']);
 
 
 

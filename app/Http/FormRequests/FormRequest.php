@@ -22,7 +22,7 @@ class FormRequest
     }
 
     // throw validation exception and catch and pass errors and old vlaues to $_SESSION['_flash']
-    protected function throw()
+    public function throw()
     {
         ValidationException::throw($this->errors, $this->attributes); 
     }

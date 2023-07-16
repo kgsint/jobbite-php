@@ -12,11 +12,18 @@
         <form action="/login" method="POST">
             <div class="mb-6">
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
-                <input type="email" id="email" class="bg-gray-50 border border-gray-300 focus:outline-none focus:border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="your@email.com" required>
+                <input type="email" name="email" id="email" value="<?= old('email') ?>" class="bg-gray-50 border border-gray-300 focus:outline-none focus:border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="your@email.com">
+
+                <!-- validation message -->
+                <?php if(!empty(error('email'))) : ?>
+                    <div class="text-sm text-red-500">
+                        <?= error('email') ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="mb-6">
                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
-                <input type="password" id="password" placeholder="********" class="bg-gray-50 border border-gray-300 focus:outline-none focus:border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                <input type="password" id="password" name="password" placeholder="********" class="bg-gray-50 border border-gray-300 focus:outline-none focus:border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
             </div>
 
             <div class="flex justify-between items-center">

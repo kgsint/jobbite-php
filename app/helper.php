@@ -24,6 +24,12 @@ function redirectBack()
     header("Location: {$_SERVER['HTTP_REFERER']}");
 }
 
+// redirect
+function redirect(string $path = "") :void
+{
+    header("Location:{$path}");
+}
+
 // abort
 function abort(int $status = 404)
 {
@@ -33,10 +39,12 @@ function abort(int $status = 404)
     exit;
 }
 
+// old value
 function old(string $key = "") {
     return $_SESSION['_flash']['old'][$key] ?? "";
 }
 
+// validation error message
 function error(string $key) {
     return $_SESSION['_flash']['errors'][$key] ?? "";
 }
