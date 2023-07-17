@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use App\Http\Middleware\Middleware;
+
 class Router 
 {
     protected array $routes = [];
@@ -13,6 +15,7 @@ class Router
             'method' => $method,
             'uri' => $uri,
             'controller' => $controller,
+            'middleware' => null,
         ];
 
         return $this;
@@ -54,6 +57,9 @@ class Router
     {
         foreach($this->routes as $route) {
             if($route['uri'] === $uri && $route['method'] === $method) {
+                // middleware layer 
+                Middleware::resolve($route['middleware']);
+
                 $this->routeToController($route['controller']);
                 exit;
             }
@@ -94,5 +100,11 @@ class Router
             call_user_func_array([$class, $method], []);
 
         }
+    }
+
+    // to guard route | middleware 
+    public function guard(string $key)
+    {
+        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
     }
 }
