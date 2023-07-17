@@ -1,5 +1,8 @@
 <?php 
 
+use Core\Database\MySQL;
+use Core\Database\Tables\UsersTable;
+
 // die and dump
 function dd(mixed $value):void 
 {
@@ -67,3 +70,12 @@ function url_asset(string $path = "")
 
     return $host;
 }
+
+function auth_user()
+    {
+        $email = $_SESSION['user']['email'];
+
+        $user = (new UsersTable(new MySQL))->findByEmail($email);
+
+        return $user ?? null;
+    }
