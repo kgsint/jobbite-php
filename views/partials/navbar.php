@@ -12,7 +12,7 @@
   <div class="flex md:order-2 md:space-x-2">
     <!-- nav btns -->
       <?php if(isset($_SESSION['user'])) : ?>
-        <a href="#" class="text-black cursor-pointer bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 md:mr-0">Post a job</a>
+        <a href="/job/create" class="text-black cursor-pointer bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 md:mr-0">Post a job</a>
         <button form="logout-form" class="text-white cursor-pointer bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 md:mr-0">Logout</a>
       <?php else: ?>
         <a href="/login" class="text-white  block cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</a>

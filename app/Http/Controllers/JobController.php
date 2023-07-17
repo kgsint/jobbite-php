@@ -38,7 +38,7 @@ class JobController
             $tmp = $_FILES['company_logo']['tmp_name']; 
             
             $data['company_logo'] = $filename;
-            // move_uploaded_file($tmp, STORAGE_PATH . "images/$filename");
+            move_uploaded_file($tmp, PUBLIC_PATH . "assets/images/$filename");
 
         }
 

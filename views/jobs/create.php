@@ -114,7 +114,7 @@
 
             <div class="mb-6">
                 <label class="block mb-2 text-sm font-medium text-gray-900" for="user_avatar">Upload company logo (optional)</label>
-                <input class="block w-full p-6 focus:outline-none text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" type="file" accept="image/png, image/gif, image/jpeg">
+                <input class="block w-full p-6 focus:outline-none text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" type="file" name="company_logo" accept="image/png, image/gif, image/jpeg">
             </div>
 
             <div class="mb-6">
