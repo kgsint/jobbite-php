@@ -48,7 +48,7 @@ class JobsTable
         }
     }
 
-    public function search($title, $location, $status)
+    public function search($title)
     {
         $query = "SELECT * FROM jobs WHERE title LIKE :title ";
 
@@ -79,5 +79,18 @@ class JobsTable
 
         return $row;
         
+    }
+
+    public function latest($limit =  5)
+    {
+        $query = "SELECT * FROM `jobs` ORDER BY created_at DESC limit {$limit}";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->execute();
+
+        $row = $stmt->fetchAll() ?? null;
+
+        return $row;
     }
 }

@@ -8,6 +8,14 @@ use App\Http\FormRequests\StoreJobFormRequest;
 
 class JobController 
 {
+    public function index()
+    {
+        $jobTable = new JobsTable(new MySQL);
+        $jobs = $jobTable->getAll();
+
+        return view('jobs/index', ['jobs' => $jobs]);
+    }
+    
     public function create()
     {
         return view('jobs/create');

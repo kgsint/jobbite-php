@@ -71,6 +71,12 @@ function url_asset(string $path = "")
     return $host;
 }
 
+// check active nav
+function checkActiveNav(string $uri)
+{
+    return parse_url($_SERVER['REQUEST_URI'])['path'] === $uri ? 'bg-blue-700 md:text-blue-700' : '';
+}
+
 function auth_user()
     {
         $email = $_SESSION['user']['email'];

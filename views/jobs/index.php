@@ -4,9 +4,6 @@
 <!-- navigation -->
 <?php require_once VIEW_PATH . "partials/navbar.php" ?>
 
-<!-- hero section -->
-<?php require_once VIEW_PATH . "partials/hero.php" ?>
-
 <main class="container max-w-[1135px] mx-auto py-10">
   <h2 class="text-center text-2xl mb-2">Latest Jobs</h2>
   <div class="grid place-items-center md:space-y-12">
