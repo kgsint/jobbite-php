@@ -10,7 +10,12 @@ class HomeController
     public function index()
     {
         $jobTable = new JobsTable(new MySQL());
-        $jobs = $jobTable->latest();
+        
+        if(!empty($_GET['title'])) {
+            $jobs = $jobTable->search($_GET['title']);
+        }else {
+            $jobs = $jobTable->latest();
+        }
         return view('home', ['jobs' => $jobs]);
     }
 }
