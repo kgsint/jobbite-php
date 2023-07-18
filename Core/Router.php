@@ -65,7 +65,6 @@ class Router
             }
         }
 
-        echo "404 not found";
         return abort(404);
     }
 

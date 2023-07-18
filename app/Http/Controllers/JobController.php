@@ -15,12 +15,31 @@ class JobController
 
         return view('jobs/index', ['jobs' => $jobs]);
     }
+
+    // job details
+    public function show()
+    {
+        $id = $_GET['id'] ?? false;
+
+        $jobTable = new JobsTable(new MySQL);
+        
+        $job = $jobTable->findById($id);
+
+        // 404 when there is no query string for id or can't find the matching job in database
+        if(!$id || !$job) {
+            abort(404);
+        }
+
+        return view('jobs/show', [ 'job' => $job ]);
+    }
     
+    // create view
     public function create()
     {
         return view('jobs/create');
     }
 
+    // store job
     public function store()
     {
         StoreJobFormRequest::validate($_POST);
@@ -49,8 +68,6 @@ class JobController
             move_uploaded_file($tmp, PUBLIC_PATH . "assets/images/$filename");
 
         }
-
-
 
         // store into db
         (new JobsTable(new MySQL))->insert($data);

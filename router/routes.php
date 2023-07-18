@@ -17,6 +17,7 @@ $router->post('/login', [LoginController::class, 'store'])->guard('guest');
 $router->post('/logout', [LoginController::class, 'logout'])->guard('auth');
 
 $router->get('/jobs', [JobController::class, 'index']);
+$router->get('/jobs/job', [JobController::class, 'show']);
 $router->get('/job/create', [JobController::class, 'create'])->guard('auth');
 $router->post('/job/new', [JobController::class, 'store']);
 
