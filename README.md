@@ -14,7 +14,7 @@ Features included
  composer install
  ```
 
-### to serve php server, run 
+### to serve php server, set your document root to public and, run 
 ```
 php -S localhost:<portnumber> -t public
 ```
