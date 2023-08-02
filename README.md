@@ -6,7 +6,7 @@ Features included
 - RPG pattern with data flashing (error messages, old values, etc...)
 - Middleware
 - Routing, pretty URL
-- Database abstraction layer
+- Database abstraction layer (DBAL)
 
 ## Set up and Installation
 
