@@ -1,5 +1,5 @@
 {
-    "name": "kgsint/jobboard",
+    "name": "kgsint/jobbite",
     "autoload": {
         "psr-4": {
             "App\\": "app/",
